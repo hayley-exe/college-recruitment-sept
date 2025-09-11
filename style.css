@@ -1,7 +1,16 @@
+.body {
+  background-color: #c8102e !important;
+}
+
 /* Menu icon */
 .menu-icon {
+  width: 50px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  display: flex; /* Flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+
   font-size: 30px;
-  padding-left: 5px;
   cursor: pointer;
   background-color: #333;
   color: white;
@@ -12,53 +21,56 @@
   z-index: 1001; /* above sidebar */
 }
 
-/* Horizontal nav sliding from left */
+/* Sidebar base (desktop by default) */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  height: 70px; /* Height of the nav bar */
-  width: 0; /* Start closed */
-  background-color: #333;
+  width: 0; /* Hidden by default (desktop) */
+  height: 70px; /* Nav height on desktop */
   overflow: hidden;
-  white-space: nowrap; /* keep items in one line */
-  transition: width 0.5s ease-in-out;
+  background-color: transparent; /* No background when closed */
+  transition: all 0.5s ease-in-out;
   z-index: 1000;
   display: flex;
   align-items: center;
-  padding-left: 60px; /* to clear menu icon */
+  padding-left: 0; /* No padding when closed */
   box-sizing: border-box;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
+}
+.sidebar.open {
+  width: 100vw;
+  background-color: #333; /* Background only when open */
+  padding-left: 60px;
   padding-top: 5px;
   padding-bottom: 10px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-/* When open, set width to full */
+/* When open on desktop */
 .sidebar.open {
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
 }
 
-/* Menu items in horizontal row */
+/* Menu items in horizontal row (desktop) */
 .sidebar ul {
   list-style: none;
   margin: 0;
   padding: 0 10px;
   display: flex;
-  gap: 50px; /* adjust spacing */
+  gap: 50px;
   width: 100%;
   justify-content: flex-start;
 }
 
 .sidebar ul li {
-  padding-left: 0; /* Removed invalid syntax */
   text-align: center;
 }
 
 .sidebar ul li a {
   color: white;
   text-decoration: none;
-  display: inline-block; /* fixed typo */
+  display: inline-block;
   padding: 10px 15px;
 }
 
@@ -66,13 +78,40 @@
   background-color: #444;
   border-radius: 3px;
 }
-.bannimg {
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-}
-.tech {
-  padding-top: 20px;
-  text-align: center;
+
+/* ---------- MOBILE DROPDOWN STYLES ---------- */
+@media (max-width: 768px) {
+  .sidebar {
+    flex-direction: column;
+    width: 100vw;
+    height: 0;
+    transition: height 0.5s ease-in-out;
+    padding: 0;
+    align-items: flex-start;
+    border-radius: 0;
+  }
+
+  .sidebar.open {
+    height: 100vh;
+    padding-top: 60px; /* pushes content below the icon */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .sidebar ul li {
+    width: 100%;
+  }
+
+  .sidebar ul li a {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 0;
+  }
 }

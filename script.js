@@ -20,3 +20,6 @@ function selectPage(event) {
 links.forEach(link => {
     link.addEventListener("click", selectPage);
 });
+if (window.innerWidth <= 768) {
+    // Optional mobile-specific behavior
+}
