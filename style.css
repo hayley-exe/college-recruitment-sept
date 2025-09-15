@@ -2,13 +2,18 @@
   background-color: #c8102e !important;
 }
 
+.tech {
+  padding-top: 75px;
+  padding-left: 25px;
+}
+
 /* Menu icon */
 .menu-icon {
-  width: 50px; /* Fixed width */
-  height: 50px; /* Fixed height */
-  display: flex; /* Flex container */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-size: 30px;
   cursor: pointer;
@@ -18,7 +23,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1001; /* above sidebar */
+  z-index: 1001;
 }
 
 /* Sidebar base (desktop by default) */
@@ -26,20 +31,21 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 0; /* Hidden by default (desktop) */
-  height: 70px; /* Nav height on desktop */
+  width: 0;
+  height: 70px;
   overflow: hidden;
-  background-color: transparent; /* No background when closed */
+  background-color: transparent;
   transition: all 0.5s ease-in-out;
   z-index: 1000;
   display: flex;
   align-items: center;
-  padding-left: 0; /* No padding when closed */
+  padding-left: 0;
   box-sizing: border-box;
 }
+
 .sidebar.open {
   width: 100vw;
-  background-color: #333; /* Background only when open */
+  background-color: #333;
   padding-left: 60px;
   padding-top: 5px;
   padding-bottom: 10px;
@@ -47,12 +53,6 @@
   border-top-right-radius: 5px;
 }
 
-/* When open on desktop */
-.sidebar.open {
-  width: 100vw;
-}
-
-/* Menu items in horizontal row (desktop) */
 .sidebar ul {
   list-style: none;
   margin: 0;
@@ -93,7 +93,7 @@
 
   .sidebar.open {
     height: 100vh;
-    padding-top: 60px; /* pushes content below the icon */
+    padding-top: 60px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -114,4 +114,57 @@
     font-size: 18px;
     padding: 12px 0;
   }
+}
+
+.text-content {
+  padding: 15px;
+  flex: 1;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 100%;
+  margin-top: 15px;
+  margin-left: 20px;
+
+  /* Ensures vertical stacking */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Each content block */
+.col-12 {
+  width: 100%;
+  max-width: 800px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.mb-4 {
+  margin-bottom: 20px;
+}
+
+.divider {
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+.one {
+  background-color: crimson;
+}
+
+.two {
+  background-color: rgb(220, 20, 20);
+}
+
+.tree {
+  background-color: rgb(220, 20, 20);
+}
+
+.four {
+  background-color: rgb(115, 219, 112);
 }
