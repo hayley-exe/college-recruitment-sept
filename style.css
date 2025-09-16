@@ -1,10 +1,40 @@
-.body {
-  background-color: #c8102e !important;
+html,
+body {
+  height: auto;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-.tech {
-  padding-top: 75px;
-  padding-left: 25px;
+.slide {
+  max-width: 800px;
+  margin-bottom: 40px; /* keep your spacing below carousel */
+}
+
+.carousel-inner {
+  height: auto; /* or whatever fixed height you want */
+  position: relative;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-inner .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.carousel-inner .carousel-item:nth-child(3) img {
+  clip-path: inset(0 0 16px 0);
+}
+
+/* Adjust main content area to avoid being hidden behind fixed sidebar */
+body {
+  padding-left: 70px; /* sidebar width + some margin */
+  padding-top: 50px;
+  color: whitesmoke;
 }
 
 /* Menu icon */
@@ -81,14 +111,23 @@
 
 /* ---------- MOBILE DROPDOWN STYLES ---------- */
 @media (max-width: 768px) {
+  .col-12 {
+    width: 100%;
+    max-width: 800px;
+    padding-top: 10px;
+
+    box-sizing: border-box;
+  }
   .sidebar {
     flex-direction: column;
     width: 100vw;
     height: 0;
+    overflow: hidden; /* important for clipping content */
     transition: height 0.5s ease-in-out;
     padding: 0;
     align-items: flex-start;
     border-radius: 0;
+    background-color: #333; /* set background on mobile */
   }
 
   .sidebar.open {
@@ -165,6 +204,16 @@
   background-color: rgb(220, 20, 20);
 }
 
-.four {
-  background-color: rgb(115, 219, 112);
+.topper {
+  background: #dc143c;
+  background: linear-gradient(
+    90deg,
+    rgba(179, 54, 54, 1) 0%,
+    rgba(220, 20, 60, 1) 50%,
+    rgba(237, 83, 83, 1) 100%
+  );
+  color: whitesmoke;
+}
+div {
+  border-radius: 15px;
 }
