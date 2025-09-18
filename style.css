@@ -5,7 +5,24 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-image: url("imgs/bg.jpg"); /* Add your background image */
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background image covers the whole page */
+  background-attachment: fixed; /* Keep the background image fixed when scrolling */
 }
+.banner {
+  width: 100vw;       /* full viewport width */
+  overflow: hidden;   /* hide overflow */
+}
+
+.banner img {
+  width: 100%;
+  height: auto;       /* keep natural aspect ratio */
+  display: block;
+  object-fit: none;   /* prevent zooming/cropping */
+}
+
+
 
 .slide {
   max-width: 800px;
@@ -26,6 +43,7 @@ body {
   width: 100%;
   object-fit: cover;
 }
+
 .carousel-inner .carousel-item:nth-child(3) img {
   clip-path: inset(0 0 16px 0);
 }
@@ -112,22 +130,23 @@ body {
 /* ---------- MOBILE DROPDOWN STYLES ---------- */
 @media (max-width: 768px) {
   .col-12 {
-    width: 100%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 100%;
     padding-top: 10px;
-
     box-sizing: border-box;
+    margin: 0 auto;
+    transform: translateX(-30px);
   }
   .sidebar {
     flex-direction: column;
     width: 100vw;
     height: 0;
-    overflow: hidden; /* important for clipping content */
+    overflow: hidden;
     transition: height 0.5s ease-in-out;
     padding: 0;
     align-items: flex-start;
     border-radius: 0;
-    background-color: #333; /* set background on mobile */
+    background-color: #333;
   }
 
   .sidebar.open {
@@ -153,6 +172,25 @@ body {
     font-size: 18px;
     padding: 12px 0;
   }
+
+  /* ✅ NEW: Stack & center container children on mobile */
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* ✅ NEW: Style carousel on mobile */
+  .slide {
+    margin: 0 auto;
+    transform: translateX(-10px);
+  }
+  /* === Universal Rounded Corners === */
+
+  .gates-img-wrapper,
+  .gates-img-wrapper img {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: -25px;
+  }
 }
 
 .text-content {
@@ -160,16 +198,19 @@ body {
   flex: 1;
   max-width: 100%;
   box-sizing: border-box;
+  text-align: center; /* ✅ Center text inside blocks */
 }
 
+/* ✅ Updated to center child divs and wrap properly */
 .container {
   max-width: 100%;
   margin-top: 15px;
-  margin-left: 20px;
-
-  /* Ensures vertical stacking */
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -181,6 +222,7 @@ body {
   padding-bottom: 10px;
   padding-left: 10px;
   box-sizing: border-box;
+  margin: 0 auto; /* ✅ Center blocks horizontally */
 }
 
 .mb-4 {
@@ -214,6 +256,25 @@ body {
   );
   color: whitesmoke;
 }
+
 div {
   border-radius: 15px;
+}
+.gate 
+  border-radius: 15px;
+.gates-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px; /* round all corners */
+  height: 100%;
+}
+
+.gates-img-wrapper img {
+  display: block;
+  width: 100%;
+  height: calc(100% + 20px);
+  object-fit: cover;
+  border-radius: 15px; /* same as container for all corners */
+  position: relative;
+  top: -20px;
 }
