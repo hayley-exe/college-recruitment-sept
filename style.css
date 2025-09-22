@@ -167,26 +167,38 @@ body {
     font-size: 18px;
     padding: 12px 0;
   }
+ .gates-section {
+    align-items: center;
+    text-align: center;
+  }
 
+  .gates-img-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* ✅ Center the carousel */
+  .slide {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Optional: Fix carousel height if it's too tall on mobile */
+  .carousel-inner {
+    max-height: 300px; /* Adjust as needed */
+  }
+
+  .carousel-inner .carousel-item img {
+    height: auto;
+    max-height: 300px;
+  }
+}
   /* ✅ NEW: Stack & center container children on mobile */
   .container {
     flex-direction: column;
     align-items: center;
   }
-  /* ✅ NEW: Style carousel on mobile */
-  .slide {
-    margin: 0 auto;
-    transform: translateX(-10px);
-  }
-  /* === Universal Rounded Corners === */
 
-  .gates-img-wrapper,
-  .gates-img-wrapper img {
-    border-radius: 15px;
-    overflow: hidden;
-    margin-left: -25px;
-  }
-}
 
 .text-content {
   padding: 15px;
